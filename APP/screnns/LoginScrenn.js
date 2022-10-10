@@ -5,10 +5,12 @@ import { AuthContext } from '../context/AuthContext';
 const LoginScreen =({navigation})=>{
     const [userName, setUserName] = useState(null);
     const [password, setPassword] = useState(null);
-    const val = useContext(AuthContext);
+    const {login} = useContext(AuthContext);
+    
     return(
         <View style={styles.container}>
             <View style={styles.wrapper}>
+                
                 <TextInput style={styles.input} 
                     placeholder='User Name'
                     onChangeText={text=> setUserName(text)}
@@ -18,7 +20,7 @@ const LoginScreen =({navigation})=>{
                     secureTextEntry
                     onChangeText={text=> setPassword(text)}
                 />
-                <Button title='Login'/>
+                <Button title='Login' onPress={()=>{login()}}/>
                 <View style={{flexDirection: 'row'}}>
                     <Text>Bạn chưa có Tài khoản?</Text>
                     <TouchableOpacity

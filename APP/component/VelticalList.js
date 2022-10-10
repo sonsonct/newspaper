@@ -5,13 +5,13 @@ import FlatCard from './FlatCard'
 import Title from './Title'
 const VelticalList=({title, data}) =>{
     return (
-      <View style={styles.container}>
-        <Title>{title}</Title>
-        <View>
+      <>
+        <Title size={20}>{title}</Title>
+        <View style={styles.container}>
             {data.map(item=><FlatCard item={item} key={item.id}/>)}
         </View>
         
-      </View>
+      </>
     )
   
 }

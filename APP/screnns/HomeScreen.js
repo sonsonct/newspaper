@@ -15,6 +15,7 @@ const HomeScreen =()=>{
     return(
         
         <Screen>
+            <Text>abc</Text>
             <SearchBar/>
             <BreakingNews data={breaking}/>
             <TechNews data={tech}/>
@@ -39,6 +40,7 @@ const HomeScreen =()=>{
                     category: "tech"
                 }}/>
             <VelticalList data={political}/>
+            
         </Screen>
     )
 }

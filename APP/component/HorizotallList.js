@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, FlatList } from 'react-native'
+import { Text, View, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 import SmallCard from './SmallCard'
 import Title from './Title'
 const HorizotallList =({title, data})=>{
@@ -9,9 +9,10 @@ const HorizotallList =({title, data})=>{
         <View style={styles.listStyle}>
 
         
-        <FlatList data={data} keyExtractor={item=>item.id} horizontal showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => <SmallCard item={item}/>}
-        />
+            <FlatList data={data} keyExtractor={item=>item.id} horizontal showsHorizontalScrollIndicator={false}
+            renderItem={({item}) => <SmallCard item={item}/>}
+            />
+        
         </View>
         </>
     )

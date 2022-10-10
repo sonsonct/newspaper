@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Image } from 'react-native'
+import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native'
 import Title from './Title'
 import SubTitle from './SubTitle'
 const FlatCard = ({style, imageStyle, item})=>{
     const {thumbnail, title, desc} = item
     return(
+        <TouchableOpacity>
         <View style={[styles.container, style]}>
             <Image 
                 source={{uri: thumbnail}} 
@@ -16,6 +17,7 @@ const FlatCard = ({style, imageStyle, item})=>{
                 <SubTitle>{desc}</SubTitle>
             </View>
         </View>
+        </TouchableOpacity>
     )
 }
 
