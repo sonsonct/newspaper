@@ -1,20 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-
+// import SearchBar from './APP/component/SearchBar';
+// import Screnn from './APP/component/Screnn';
+// import BlockCard from './APP/component/BlockCard';
+// import FeaturedNews from './APP/component/FeaturedNews';
+// import SmallCard from './APP/component/SmallCard';
+// import BreakingNews from './APP/component/BreakingNews';
+// import data from './dataAPI';
+// import TechNews from './APP/component/TechNews';
+import Navigater from './APP/component/Navigater';
+import {AuthProvider} from './APP/context/AuthContext'
 export default function App() {
+  // const breaking = data.filter(item=>item.category === "breaking-news")
+  // const tech = data.filter(item=>item.category === "tech")
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AuthProvider>
+      <Navigater/>
+    </AuthProvider>
+    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
