@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext'
 import Navigater from './Navigater'
 import Tabs from './Tabs'
 const Appnav =()=> {
-    const {isLoading, userToken} = useContext(AuthContext);
+    const {isLoading,token} = useContext(AuthContext);
     if(isLoading){
         return(
             <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -14,7 +14,7 @@ const Appnav =()=> {
     }
     return (
         <>
-        {userToken !== null ? <Tabs/> : <Navigater/>}
+        {token != null ? <Tabs/> : <Navigater/>}
         </>
     );
   

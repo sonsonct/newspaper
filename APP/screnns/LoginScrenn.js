@@ -1,11 +1,18 @@
-import React, { Component, useContext, useState } from 'react'
-import { Text, StyleSheet, View, TextInput, Button, TouchableOpacity } from 'react-native'
+import React, { useContext, useState } from 'react'
+import { Text, StyleSheet, View, TextInput, Button, TouchableOpacity,Alert } from 'react-native'
 import { AuthContext } from '../context/AuthContext';
 
 const LoginScreen =({navigation})=>{
     const [userName, setUserName] = useState(null);
     const [password, setPassword] = useState(null);
-    const {login} = useContext(AuthContext);
+    const {isLoading ,login} = useContext(AuthContext);
+    if(isLoading){
+        return(
+            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <ActivityIndicator size={'large'}/>
+            </View>
+        )
+    }
     
     return(
         <View style={styles.container}>
@@ -20,7 +27,13 @@ const LoginScreen =({navigation})=>{
                     secureTextEntry
                     onChangeText={text=> setPassword(text)}
                 />
-                <Button title='Login' onPress={()=>{login()}}/>
+                <Button title='Login' onPress={()=>{
+                    
+                    login(userName, password)
+                    console.log(userName+' '+password);
+                }}
+                   
+                />
                 <View style={{flexDirection: 'row'}}>
                     <Text>Bạn chưa có Tài khoản?</Text>
                     <TouchableOpacity

@@ -13,9 +13,7 @@ const HomeScreen =()=>{
     const tech = data.filter(item=>item.category === "tech")
     const political = data.filter(item=>item.category === "political")
     return(
-        
         <Screen>
-            <Text>abc</Text>
             <SearchBar/>
             <BreakingNews data={breaking}/>
             <TechNews data={tech}/>

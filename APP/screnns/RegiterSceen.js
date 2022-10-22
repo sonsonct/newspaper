@@ -1,13 +1,22 @@
 import React, { Component , useContext, useState} from 'react'
-import { Text, StyleSheet, View, TextInput, Button, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, View, TextInput, Button, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { AuthContext } from '../context/AuthContext';
 const RegiterScreen =({navigation})=>{
     const [fullName, setFullName] = useState(null);
     const [userName, setUserName] = useState(null);
     const [password, setPassword] = useState(null);
-    const {register} = useContext(AuthContext);
+    const {isLoading,register} = useContext(AuthContext);
+    if(isLoading){
+        return(
+            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <ActivityIndicator size={'large'}/>
+            </View>
+        )
+    }
     return(
+        
         <View style={styles.container}>
+            
             <View style={styles.wrapper}>
                 <TextInput style={styles.input} 
                     placeholder='Full Name'
@@ -25,6 +34,7 @@ const RegiterScreen =({navigation})=>{
                 <Button title='Register' 
                     onPress={
                         ()=>{
+                            console.log(fullName+' '+userName+' '+password);
                             register(fullName, userName, password);
                         }
                     }
