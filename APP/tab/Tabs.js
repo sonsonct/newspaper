@@ -14,17 +14,17 @@ const Tabs=() => {
             screenOptions={{
                 headerShown: false,
                 tabBarShowLabel: false,
-                tabBarStyle: {
-                    position: 'absolute',
-                    bottom: 25,
-                    left: 20,
-                    right: 20,
-                    elevation: 0,
-                    backgroundColor: '#fff',
-                    borderRadius: 15,
-                    height: 90,
-                    ...styles.shadow,
-                }
+                // tabBarStyle: {
+                //     position: 'absolute',
+                //     bottom: 25,
+                //     left: 20,
+                //     right: 20,
+                //     elevation: 0,
+                //     backgroundColor: '#fff',
+                //     borderRadius: 15,
+                //     height: 90,
+                //     ...styles.shadow,
+                // }
             }}
         >
             <Tab.Screen name="Home" component={HomeScreen} 

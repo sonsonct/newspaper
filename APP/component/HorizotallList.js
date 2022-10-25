@@ -9,8 +9,10 @@ const HorizotallList =({title, data})=>{
         <View style={styles.listStyle}>
 
         
-            <FlatList data={data} keyExtractor={item=>item.id} horizontal showsHorizontalScrollIndicator={false}
-            renderItem={({item}) => <SmallCard item={item}/>}
+            <FlatList data={data} keyExtractor={item=>item.id}
+                horizontal 
+                showsHorizontalScrollIndicator={false}
+                renderItem={({item}) => <SmallCard item={item}/>}
             />
         
         </View>

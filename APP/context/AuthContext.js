@@ -102,6 +102,7 @@ export const AuthProvider = ({ children }) => {
       })
    };
    const login=(username, password)=>{
+
       if(username==null){
          Alert.alert(
              "Thông báo",
@@ -138,7 +139,7 @@ export const AuthProvider = ({ children }) => {
       .then(res=>{
          let userInfo = res.data;
          setUserInfo(userInfo);
-         setToken(userInfo.token);
+         
          console.log(userInfo);
          if(userInfo.mess){
             Alert.alert(
@@ -153,6 +154,7 @@ export const AuthProvider = ({ children }) => {
             setIsLoading(false);
            return;
          }
+         setToken(userInfo.token);
          AsyncStorage.setItem('token', userInfo.token);
          setIsLoading(false);
       })
@@ -170,7 +172,7 @@ export const AuthProvider = ({ children }) => {
    const isLogin = async ()=>{
       try{
          setIsLoading(true);
-         let Token =  await AsyncStorage.getItem('token');
+         let token =  await AsyncStorage.getItem('token');
          setToken(token);
          setIsLoading(false);
       }catch(e){
@@ -182,7 +184,6 @@ export const AuthProvider = ({ children }) => {
    useEffect(()=>{
       isLogin();
    }, [])
-   //,login, logout, isLoading, userToken, userName, password
    return (
       <AuthContext.Provider value={{
          login,

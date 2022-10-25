@@ -1,47 +1,77 @@
 import React, { useContext, useState } from 'react'
-import { Text, StyleSheet, View, TextInput, Button, TouchableOpacity,Alert } from 'react-native'
+import { Text, StyleSheet, View, TextInput, Button, TouchableOpacity, Alert, Image } from 'react-native'
 import { AuthContext } from '../context/AuthContext';
 
-const LoginScreen =({navigation})=>{
+const LoginScreen = ({ navigation }) => {
     const [userName, setUserName] = useState(null);
-    const [password, setPassword] = useState(null);
-    const {isLoading ,login} = useContext(AuthContext);
-    if(isLoading){
-        return(
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <ActivityIndicator size={'large'}/>
+    const [password, setPassword] = useState(false);
+    const [show, setShow] = useState(null);
+    const [showPassword, setShowPassword] = useState(true);
+    const { isLoading, login } = useContext(AuthContext);
+    if (isLoading) {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <ActivityIndicator size={'large'} />
             </View>
         )
     }
-    
-    return(
+
+    return (
         <View style={styles.container}>
+            <View style={{ left: -106, top: -22, flexDirection: 'row', alignItems: 'center' }}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Intro')}
+                >
+                    <Image source={require('../img/backicon.png')} style={{ width: 35, height: 35, top: 1 }} />
+                </TouchableOpacity>
+                <Text style={{ fontSize: 24, color: '#2F99F7', fontWeight: 'bold' }}>Đăng Nhập</Text>
+            </View>
             <View style={styles.wrapper}>
-                
-                <TextInput style={styles.input} 
-                    placeholder='User Name'
-                    onChangeText={text=> setUserName(text)}
-                />
-                <TextInput style={styles.input} 
-                    placeholder='Password' 
-                    secureTextEntry
-                    onChangeText={text=> setPassword(text)}
-                />
-                <Button title='Login' onPress={()=>{
-                    
-                    login(userName, password)
-                    console.log(userName+' '+password);
-                }}
-                   
-                />
-                <View style={{flexDirection: 'row'}}>
+                <View>
+                    <Image source={require('../img/loginicon.png')} style={{ width: '105%', height: 400 }} />
+                </View>
+                <View style={styles.input} >
+                    <Image source={require('../img/usericon.png')} style={{ width: 20, height: 20, marginRight: 10, marginBottom: 5 }} />
+                    <TextInput
+                        placeholder='User Name'
+                        onChangeText={text => setUserName(text)}
+                        style={{ width: '80%' }}
+                    />
+                </View>
+                <View style={styles.input}>
+                    <Image source={require('../img/passwordicon.png')} style={{ width: 20, height: 20, marginRight: 10, marginBottom: 5 }} />
+                    <TextInput
+                        placeholder='Password'
+                        secureTextEntry={showPassword}
+                        onChangeText={text => setPassword(text)}
+                        style={{ width: '80%' }}
+                    />
+                    <TouchableOpacity
+                        onPress={() => {
+                            setShowPassword(!showPassword)
+
+                            setShow(!show)
+                        }}
+                    >
+                        <Image source={show === true ? require('../img/eye.png') : require('../img/hide.png')} style={{ width: 25, height: 25 }} />
+                    </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={styles.btn}
+                    onPress={() => {
+                        login(userName, password)
+                        console.log(userName + ' ' + password);
+                    }}
+                >
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>Đăng Nhập</Text>
+                </TouchableOpacity>
+                <View style={{ flexDirection: 'row', margin: 20 }}>
                     <Text>Bạn chưa có Tài khoản?</Text>
                     <TouchableOpacity
-                        onPress={()=>navigation.navigate('Regiter')}
+                        onPress={() => navigation.navigate('Regiter')}
                     >
-                        <Text style={{color: 'blue'}}>Đăng Ký</Text>
+                        <Text style={{ color: 'blue', marginHorizontal: 10 }}>Đăng Ký</Text>
                     </TouchableOpacity>
-                    
+
                 </View>
             </View>
         </View>
@@ -49,21 +79,42 @@ const LoginScreen =({navigation})=>{
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#ffffff'
     },
-    wrapper:{
+    wrapper: {
         width: '80%'
     },
-    input:{
-        marginBottom: 12,
-        borderWidth: 1,
-        borderColor: '#bbb',
-        borderRadius: 5,
-        paddingHorizontal: 14,
+    input: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#777E85',
         height: 50,
+        flexDirection: 'row',
+        width: '100%',
+        alignItems: 'center',
+        marginVertical: 10,
+    },
+    btn: {
+        width: '100%',
+        height: 50,
+        backgroundColor: '#2F99F7',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 40,
+        marginVertical: 10,
+        flexDirection: 'row',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 12,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 16.00,
+
+        elevation: 24,
     }
 })
 export default LoginScreen;
