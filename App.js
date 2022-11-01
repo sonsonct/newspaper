@@ -11,13 +11,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import Navigater from './APP/tab/Navigater';
 import {AuthProvider} from './APP/context/AuthContext'
 import Tabs from './APP/tab/Tabs';
-import Appnav from './APP/tab/Appnav';
 export default function App() {
   // const breaking = data.filter(item=>item.category === "breaking-news")
   // const tech = data.filter(item=>item.category === "tech")
   return (
     <AuthProvider>
-      <Appnav/>
+      <Navigater/>
     </AuthProvider>
    
   );

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Text, StyleSheet, View, TextInput, Button, TouchableOpacity, Alert, Image } from 'react-native'
+import { Text, StyleSheet, View, TextInput, Button, TouchableOpacity, Alert, Image , ActivityIndicator} from 'react-native'
 import { AuthContext } from '../context/AuthContext';
 
 const LoginScreen = ({ navigation }) => {
@@ -7,7 +7,7 @@ const LoginScreen = ({ navigation }) => {
     const [password, setPassword] = useState(false);
     const [show, setShow] = useState(null);
     const [showPassword, setShowPassword] = useState(true);
-    const { isLoading, login } = useContext(AuthContext);
+    const { isLoading, login, token } = useContext(AuthContext);
     if (isLoading) {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

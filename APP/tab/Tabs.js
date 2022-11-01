@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 
 const Tabs=() => {
   return (
-    <NavigationContainer>
+   
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,
@@ -117,7 +117,7 @@ const Tabs=() => {
                 }}
             />
         </Tab.Navigator>
-    </NavigationContainer>
+    
   );
 }
 const styles = StyleSheet.create({
