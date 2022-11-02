@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
    const [isLoading, setIsLoading] = useState(false);
    const [userInfo, setUserInfo] = useState({});
    const [token, setToken] = useState(null);
+   const [userFullName, setUserFullName] = useState(null);
    const register=(fullname, username, password)=>{
       if(fullname==null){
          Alert.alert(
@@ -154,7 +155,9 @@ export const AuthProvider = ({ children }) => {
             setIsLoading(false);
            return;
          }
+         
          setToken(userInfo.token);
+         setUserFullName(userInfo.fullname);
          AsyncStorage.setItem('token', userInfo.token);
          setIsLoading(false);
       })
@@ -174,6 +177,7 @@ export const AuthProvider = ({ children }) => {
          setIsLoading(true);
          let token =  await AsyncStorage.getItem('token');
          setToken(token);
+         
          setIsLoading(false);
       }catch(e){
          console.log('err', e);
@@ -191,7 +195,8 @@ export const AuthProvider = ({ children }) => {
          register,
          isLoading,
          userInfo,
-         token
+         token,
+         userFullName
          
       }}>{children}</AuthContext.Provider>
    )

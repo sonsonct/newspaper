@@ -1,47 +1,30 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
-import Screen from '../component/Screnn'
+import {View, StatusBar,Image } from 'react-native'
 import SearchBar from '../component/SearchBar';
-import BreakingNews from '../component/BreakingNews'
-import TechNews from '../component/TechNews'
-import FeaturedNews from '../component/FeaturedNews'
-import data from '../../dataAPI'
-import FlatCard from '../component/FlatCard';
-import VelticalList from '../component/VelticalList';
+import Tinmoi from '../component/Tinmoi';
+import Tonghop from '../component/Tonghop';
+import Noibat from '../component/Noibat';
+import { ScrollView } from 'react-native-virtualized-view';
 const HomeScreen =()=>{
-    const breaking = data.filter(item=>item.category === "breaking-news")
-    const tech = data.filter(item=>item.category === "tech")
-    const political = data.filter(item=>item.category === "political")
     return(
-        <Screen>
+        <ScrollView style={{backgroundColor: '#fff', paddingHorizontal: 15,flex:1}}>
+            <View style={{justifyContent:'center',alignItems:'center',marginBottom:10}}>
+            <StatusBar
+            animated={true}
+            backgroundColor="#61dafb"
+             />
+            {/* <Image
+                    style={{height:50,width:120, marginTop:30}}
+                    source={require('../img/logoo.png')}
+                /> */}
+                {/* <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#428FF5', marginTop:50 }}>BÁO MỚI</Text> */}
+           </View>
             <SearchBar/>
-            <BreakingNews data={breaking}/>
-            <TechNews data={tech}/>
-            <FeaturedNews
-                item={{
-                    
-                    id: "8",
-                    title: "This is the title no eight.",
-                    desc:
-                            "Desc is the short form of description and this format is the actual same as our real database.",
-                    thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKuJff_DKk6VWg1yHLxixGS1KXfGo8VMcH0PPklZwR&s",
-                    category: "tech"
-                }}
-            />
-            <FlatCard item={{
-                    
-                    id: "8",
-                    title: "This is the title no eight.",
-                    desc:
-                            "Desc is the short form of description and this format is the actual same as our real database.",
-                    thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKuJff_DKk6VWg1yHLxixGS1KXfGo8VMcH0PPklZwR&s",
-                    category: "tech"
-                }}/>
-            <VelticalList data={political}/>
-            
-        </Screen>
+            <Tinmoi></Tinmoi>
+            <Tonghop></Tonghop>    
+            <Noibat></Noibat>
+        </ScrollView>
     )
 }
 
-const styles = StyleSheet.create({})
 export default HomeScreen;

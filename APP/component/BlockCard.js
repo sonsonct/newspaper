@@ -5,7 +5,9 @@ import SubTitle from './SubTitle'
 const BlockCard = ({style, imageStyle, item})=>{
     const {thumbnail, title, desc} = item
     return(
-        <TouchableOpacity>
+        <TouchableOpacity
+            
+        >
         <View style={[styles.container, style]}>
             <Image 
                 source={{uri: thumbnail}} 

@@ -6,6 +6,7 @@ import RegiterScreen from '../screnns/RegiterSceen';
 import Intro from '../screnns/Intro';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Tabs from './Tabs';
+import Details from '../screnns/Details';
 import { AuthContext } from '../context/AuthContext';
 const Stack = createNativeStackNavigator();
 const Navigater =()=>{
@@ -16,7 +17,12 @@ const Navigater =()=>{
             <Stack.Navigator>
                 
                 {token != null ? 
-                    (<Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}}/>):(
+                    (
+                        <>
+                        <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}}/>
+                        <Stack.Screen name="Details" component={Details} options={{headerShown: false}}/>
+                        </>
+                    ):(
                         <>
                             <Stack.Screen name="Intro" component={Intro} options={{headerShown: false}}/>
                             <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}/>
@@ -24,6 +30,7 @@ const Navigater =()=>{
                         </>
                     )
                 }
+                
                 
                 
             </Stack.Navigator>

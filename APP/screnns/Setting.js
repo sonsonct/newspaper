@@ -3,9 +3,10 @@ import { Text, StyleSheet, View , Button} from 'react-native'
 import { AuthContext } from '../context/AuthContext';
 
 const Setting =()=> {
-    const {logout} = useContext(AuthContext);
+    const {logout,useFullName} = useContext(AuthContext);
     return (
       <View style={{flex: 1,justifyContent: 'center', alignItems:'center'}}>
+        <Text>{useFullName}</Text>
         <Button title='Log out'
             onPress={()=>{logout()}}
         />
