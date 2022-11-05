@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { Text, TextInput, View, StyleSheet } from 'react-native'
-
+import { useNavigation } from '@react-navigation/native';
 const SearchBar =()=>{
+    const navigation = useNavigation();
     return(
         <View style={styles.container}>
-            <TextInput style={styles.searchInput} placeholder='Nhập Thông Tin...'/>
+            <TextInput style={styles.searchInput} placeholder='Nhập Thông Tin...'
+                onPressIn={()=>navigation.navigate('Search')}
+            />
         </View>
     )
 }

@@ -7,6 +7,7 @@ import Intro from '../screnns/Intro';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Tabs from './Tabs';
 import Details from '../screnns/Details';
+import Search from '../screnns/Search';
 import { AuthContext } from '../context/AuthContext';
 const Stack = createNativeStackNavigator();
 const Navigater =()=>{
@@ -19,8 +20,9 @@ const Navigater =()=>{
                 {token != null ? 
                     (
                         <>
-                        <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}}/>
-                        <Stack.Screen name="Details" component={Details} options={{headerShown: false}}/>
+                            <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}}/>
+                            <Stack.Screen name="Details" component={Details} options={{headerShown: false}}/>
+                            <Stack.Screen name="Search" component={Search} options={{headerShown: false}}/>
                         </>
                     ):(
                         <>

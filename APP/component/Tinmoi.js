@@ -28,8 +28,6 @@ const Tinmoi=()=>{
     onPress={()=>
         
         {   
-            
-            
             navigation.navigate('Details', { item })
             console.log(item.id)
         }
@@ -67,35 +65,52 @@ const Tinmoi=()=>{
     )
 }
 const styles = StyleSheet.create({
-    container:{
-        flex:1
-    },
-    bai_bao:{
-        borderRadius: 10,
-        width:200,
-        marginRight:10,
-        marginTop:20
-    },
-    contentContainer:{
-        fontWeight:'bold',
-        fontSize:17,
-        flex: 0.65,
-        paddingHorizontal: 5,
-    },
-    text_tieu_de:{
-        fontWeight:'bold',
-        fontSize:16,
-    },
-    img:{
-        flex: 0.35,
-        width: '100%',
-        height: 120,
-        borderRadius:8
-    },
-    imglogo:{
-        width:55,
-        height:30,
-        marginLeft:4
-    }
+   
+        container: {
+          flex: 1
+        },
+        bai_bao: {
+          borderRadius: 10,
+          width: 200,
+          marginRight: 10,
+          marginTop: 20
+        },
+        contentContainer: {
+          fontWeight: 'bold',
+          fontSize: 17,
+          flex: 0.65,
+          paddingHorizontal: 5,
+        },
+        text_tieu_de: {
+          fontWeight: 'bold',
+          fontSize: 16,
+        },
+        img: {
+          flex: 0.35,
+          width: '100%',
+          height: 120,
+          borderRadius: 8
+        },
+        imglogo: {
+          width: 55,
+          height: 30,
+          marginLeft: 4
+        },
+        search:{
+          width: '100%',
+          height: 38,
+          backgroundColor: '#fff',
+          borderRadius: 8,
+          flexDirection:'row',
+          justifyContent: 'space-between',
+          borderWidth: 1,
+          borderRadius: 10,
+          marginBottom:20
+      },
+      searchInput:{
+          paddingLeft: 8,
+          fontSize: 14,
+      }
+    
 })
 export default Tinmoi;
