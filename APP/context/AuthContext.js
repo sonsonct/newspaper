@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
    const [userInfo, setUserInfo] = useState({});
    const [token, setToken] = useState(null);
    const [userFullName, setUserFullName] = useState(null);
+   const [idUser, setIdUser] = useState(null);
    const register=(fullname, username, password)=>{
       if(fullname==null){
          Alert.alert(
@@ -84,10 +85,11 @@ export const AuthProvider = ({ children }) => {
          AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
          setIsLoading(false);
          console.log(userInfo);
-         if(userInfo){
+         console.log(userInfo.mess);
+         if(userInfo.mess==='thanhcong'){
             Alert.alert(
                 "Thông báo",
-                "Xin Đăng Ký thành công, xin hãy đăng nhập lại",
+                "Đăng Ký thành công, xin hãy đăng nhập lại",
                 [
                   {
                     text: "Đã hiểu",
@@ -95,6 +97,17 @@ export const AuthProvider = ({ children }) => {
                 ],
               );
             return;
+         }else if(userInfo.mess==='datontai'){
+            Alert.alert(
+               "Thông báo",
+               "Tài khoản đã tồn tại",
+               [
+                 {
+                   text: "Đã hiểu",
+                 },
+               ],
+             );
+           return;
          }
       })
       .catch(e=>{
@@ -158,7 +171,10 @@ export const AuthProvider = ({ children }) => {
          
          setToken(userInfo.token);
          setUserFullName(userInfo.fullname);
+         setIdUser(userInfo.id);
+         console.log(userInfo);
          AsyncStorage.setItem('token', userInfo.token);
+         AsyncStorage.setItem('id', userInfo.id);
          setIsLoading(false);
       })
       .catch(e=>{
@@ -170,6 +186,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoading(true);
       setToken(null);
       AsyncStorage.removeItem('token');
+      AsyncStorage.removeItem('id');
       setIsLoading(false);
    }
    const isLogin = async ()=>{
@@ -177,7 +194,8 @@ export const AuthProvider = ({ children }) => {
          setIsLoading(true);
          let token =  await AsyncStorage.getItem('token');
          setToken(token);
-         
+         let id =  await AsyncStorage.getItem('id');
+         setIdUser(id);
          setIsLoading(false);
       }catch(e){
          console.log('err', e);
@@ -196,7 +214,8 @@ export const AuthProvider = ({ children }) => {
          isLoading,
          userInfo,
          token,
-         userFullName
+         userFullName,
+         idUser,
          
       }}>{children}</AuthContext.Provider>
    )

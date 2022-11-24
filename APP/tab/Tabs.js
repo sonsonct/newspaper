@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 
 const Tabs=() => {
   return (
-   
+        
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,
@@ -50,8 +50,10 @@ const Tabs=() => {
                 }}
             />
             <Tab.Screen name="Follow" component={Follow} 
+                
                 options={{
                     tabBarIcon: ({focused}) =>(
+                        
                         <View style={{alignItems: 'center', justifyContent: 'center', top: 5}}>
                             <Image source={require('../img/theodoiicon.png')}
                                 resizeMode='contain'
@@ -69,6 +71,7 @@ const Tabs=() => {
                             >Theo Dõi</Text>
                         </View>
                     ),
+                    
                 }}
             />
             

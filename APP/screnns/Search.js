@@ -7,11 +7,6 @@ const Search = ({ navigation: { goBack } }) => {
     const [search, setSearch] = useState('');
     const [data_bb, setdata_bb] = useState([]);
     const [isLoading, setisLoading] = useState(false);
-    // useEffect(() => {
-    //     getList();
-    //     return () => {
-    //     }
-    // }, []);
     const getList = (tieu_de) => {
         if (tieu_de == '') {
             Alert.alert(
@@ -27,7 +22,7 @@ const Search = ({ navigation: { goBack } }) => {
         }
         setisLoading(true);
 
-        axios.get(`http://192.168.1.2/API_BaoCao-main/api/baibao/theotieude.php/`, {
+        axios.get(`http://192.168.1.8/API_BaoCao-main/api/baibao/theotieude.php/`, {
             params: {
                 tieu_de,
             }
