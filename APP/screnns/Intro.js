@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, View, Image, TouchableOpacity, StatusBar } from 'react-native'
 
 const Intro = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <StatusBar
+                animated={true}
+                backgroundColor="#61dafb"
+            />
             <View style={{ alignItems: 'center', top: -50 }}>
-                <Text style={{ fontSize: 24, color: '#2F99F7', fontWeight: 'bold' }}>APP BÁO MỚI</Text>
+                <Text style={{ fontSize: 24, color: '#2F99F7', fontWeight: 'bold' }}>BÁO MỚI</Text>
             </View>
             <Image source={require('../img/newpaper.png')} style={{ width: '90%', height: '50%', top: -50 }} />
 

@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
       if(password==null){
          Alert.alert(
              "Thông báo",
-             "Xin hãy nhập vào mật khẩu, mật khẩu phải có ít nhất 6 ký tự",
+             "Xin hãy nhập vào mật khẩu",
              [
                {
                  text: "Đã hiểu",
@@ -93,6 +93,7 @@ export const AuthProvider = ({ children }) => {
                 [
                   {
                     text: "Đã hiểu",
+                    onPress: () => {}
                   },
                 ],
               );

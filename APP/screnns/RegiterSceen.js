@@ -18,7 +18,7 @@ const RegiterScreen =({navigation})=>{
     return(
         
         <View style={styles.container}>
-            <View style={{left: -125, top: -70, flexDirection:'row', alignItems: 'center'}}>
+            <View style={{left: -125, top: -70, flexDirection:'row', alignItems: 'center', marginTop:40}}>
                 <TouchableOpacity
                     onPress={()=>navigation.navigate('Intro')}
                 >

@@ -22,7 +22,7 @@ const Search = ({ navigation: { goBack } }) => {
         }
         setisLoading(true);
 
-        axios.get(`http://192.168.1.8/API_BaoCao-main/api/baibao/theotieude.php/`, {
+        axios.get(`http://192.168.0.106/api_newspaper-main/api/baibao/theotieude.php/`, {
             params: {
                 tieu_de,
             }
@@ -54,11 +54,11 @@ const Search = ({ navigation: { goBack } }) => {
     const renderItem = ({ item, index }) => (
         <TouchableOpacity
             onPress={() => {
-                navigation.navigate('Details', { item })
+                navigation.navigate('Detail', { item })
                 console.log(item.id)
             }
             }
-            
+
         >
             <View style={styles.bai_bao}>
                 <Image
@@ -68,11 +68,22 @@ const Search = ({ navigation: { goBack } }) => {
                     <Text style={styles.text_tieu_de}>{item.tieu_de}</Text>
                     <Text numberOfLines={1} style={styles.text_noi_dung}>{item.noi_dung}</Text>
                 </View>
-                <Image
-                    source={{ uri: item.logo }}
-                    resizeMode="contain"
-                    style={styles.imglogo} />
-
+                <View style={{ flexDirection: 'row', marginTop: 10 }}>
+                    <Image
+                        source={{ uri: item.logo }}
+                        resizeMode="contain"
+                        style={styles.imglogo} />
+                    <TouchableOpacity>
+                        <Image source={require('../img/yeuthich.png')}
+                            resizeMode='contain'
+                            style={{
+                                width: 25,
+                                height: 25,
+                                marginLeft: 230
+                            }}
+                        />
+                    </TouchableOpacity>
+                </View>
             </View>
         </TouchableOpacity>
     )
@@ -96,7 +107,7 @@ const Search = ({ navigation: { goBack } }) => {
                     <Text style={{ color: '#fff' }}>Đóng</Text>
                 </TouchableOpacity>
             </View>
-            
+
             {isLoading ? <ActivityIndicator /> : (
                 <FlatList
                     data={data_bb}
@@ -121,7 +132,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 70,
         flexDirection: 'row',
-        backgroundColor: '#61dafb',
+        backgroundColor: '#015f71',
         justifyContent: 'space-around'
     },
     imgsearch: {
@@ -145,32 +156,32 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         color: '#fff',
     },
-    bai_bao:{
+    bai_bao: {
         width: '100%',
-        marginVertical:10,
-        padding: 20,
-        borderRadius:8
+        marginVertical: 10,
+        padding: 15,
+        borderRadius: 8
     },
-    contentContainer:{
-        fontWeight:'bold',
-        fontSize:17,
+    contentContainer: {
+        fontWeight: 'bold',
+        fontSize: 17,
         flex: 0.65,
         paddingHorizontal: 5,
     },
-    text_tieu_de:{
-        fontWeight:'bold',
-        fontSize:16,
+    text_tieu_de: {
+        fontWeight: 'bold',
+        fontSize: 16,
     },
-    img:{
+    img: {
         flex: 0.35,
         width: '100%',
-        height: 120,
-        borderRadius:8
+        height: 180,
+        borderRadius: 8
     },
-    imglogo:{
-        width:55,
-        height:25,
-        marginLeft:4
+    imglogo: {
+        width: 55,
+        height: 25,
+        marginLeft: 4
     }
 })
 export default Search;

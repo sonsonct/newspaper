@@ -1,32 +1,35 @@
 import React, { Component } from 'react'
-import { Text, TextInput, View, StyleSheet } from 'react-native'
+import { Text, TextInput, View, StyleSheet,Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-const SearchBar =()=>{
+const SearchBar = () => {
     const navigation = useNavigation();
-    return(
+    return (
         <View style={styles.container}>
             <TextInput style={styles.searchInput} placeholder='Nhập Thông Tin...'
-                onPressIn={()=>navigation.navigate('Search')}
+                onPressIn={() => navigation.navigate('Search')}
             />
+             <Image
+                    style={{height:30,width:30,margin:5}}
+                    source={require('../img/timkiem.png')}
+                />
         </View>
     )
 }
 const styles = StyleSheet.create({
     container:{
         width: '100%',
-        height: 50,
+        height: 38,
         backgroundColor: '#fff',
         borderRadius: 8,
-        justifyContent: 'center'
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        borderWidth: 1,
+        borderRadius: 10,
+        marginBottom:20
     },
     searchInput:{
-        width: '100%',
-        height: '100%',
         paddingLeft: 8,
-        fontSize: 16,
-        borderWidth: 2,
-        borderRadius: 10,
+        fontSize: 14,
     }
 })
 export default SearchBar;
-

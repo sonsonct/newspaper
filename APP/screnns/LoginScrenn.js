@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Text, StyleSheet, View, TextInput, Button, TouchableOpacity, Alert, Image , ActivityIndicator} from 'react-native'
+import { Text, StyleSheet, View, TextInput, Button, TouchableOpacity, Alert, Image , ActivityIndicator,StatusBar} from 'react-native'
 import { AuthContext } from '../context/AuthContext';
 
 const LoginScreen = ({ navigation }) => {
@@ -15,10 +15,13 @@ const LoginScreen = ({ navigation }) => {
             </View>
         )
     }
-
     return (
         <View style={styles.container}>
-            <View style={{ left: -106, top: -22, flexDirection: 'row', alignItems: 'center' }}>
+            <StatusBar
+            animated={true}
+            backgroundColor="#61dafb"
+             />
+            <View style={{ left: -106, top: -22, flexDirection: 'row', alignItems: 'center',marginTop:40 }}>
                 <TouchableOpacity
                     onPress={() => navigation.navigate('Intro')}
                 >
@@ -27,8 +30,8 @@ const LoginScreen = ({ navigation }) => {
                 <Text style={{ fontSize: 24, color: '#2F99F7', fontWeight: 'bold' }}>Đăng Nhập</Text>
             </View>
             <View style={styles.wrapper}>
-                <View>
-                    <Image source={require('../img/loginicon.png')} style={{ width: '105%', height: 400 }} />
+                <View   style={{alignItems:'center'}}>
+                    <Image source={require('../img/loginicon.png')} style={{ width: '115%', height: 400 }} />
                 </View>
                 <View style={styles.input} >
                     <Image source={require('../img/usericon.png')} style={{ width: 20, height: 20, marginRight: 10, marginBottom: 5 }} />
@@ -64,7 +67,7 @@ const LoginScreen = ({ navigation }) => {
                 >
                     <Text style={{ color: '#fff', fontWeight: 'bold' }}>Đăng Nhập</Text>
                 </TouchableOpacity>
-                <View style={{ flexDirection: 'row', margin: 20 }}>
+                <View style={{ flexDirection: 'row', margin: 10 }}>
                     <Text>Bạn chưa có Tài khoản?</Text>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Regiter')}
@@ -83,10 +86,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',   
     },
     wrapper: {
-        width: '80%'
+        width: '80%',
+        backgroundColor: '#ffffff', 
     },
     input: {
         borderBottomWidth: 1,

@@ -12,7 +12,7 @@ const Follow = () => {
   
   const getbaibao = (id_user) => {
     setisLoading(true);
-    axios.get(`http://192.168.1.8/API_BaoCao-main/api/theodoi/gettheodoi.php/`, {
+    axios.get(`http://192.168.43.184/API_BaoCao-main/api/theodoi/gettheodoi.php/`, {
       params: {
         id_user,
       }
@@ -44,7 +44,7 @@ const Follow = () => {
   const renderItem = ({ item, index }) => (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('Details', { item })
+        navigation.navigate('Detail', { item })
         console.log(item.id)
       }
       }
@@ -74,10 +74,14 @@ const Follow = () => {
     <View style={styles.container}
       // onLayout={()=> console.log('a')}
     >
+      
       <TouchableOpacity
         onPress={() => { getbaibao(idUser) }}
+        style={{width:'100%'}}
       >
-        <Text>a</Text>  
+        <View style={{width:'100%',height:60,backgroundColor:'#015f71',justifyContent:'center'}}>
+          <Text style={{color:'#fff',fontSize:20,fontWeight:'bold',textAlign:'center'}}>Theo dõi</Text>
+        </View> 
       </TouchableOpacity>
       {isLoading ? <ActivityIndicator /> : (
         <FlatList
@@ -132,7 +136,7 @@ const styles = StyleSheet.create({
   bai_bao: {
     width: '100%',
     marginVertical: 10,
-    padding: 20,
+    padding:15,
     borderRadius: 8
   },
   contentContainer: {
@@ -149,7 +153,8 @@ const styles = StyleSheet.create({
     flex: 0.35,
     width: '100%',
     height: 120,
-    borderRadius: 8
+    borderRadius: 8,
+    height:180
   },
   imglogo: {
     width: 55,
