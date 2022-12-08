@@ -42,16 +42,7 @@ const Noibat = () => {
             source={{ uri: item.logo }}
             resizeMode="contain"
             style={styles.imglogo} />
-          <TouchableOpacity>
-            <Image source={require('../img/yeuthich.png')}
-              resizeMode='contain'
-              style={{
-                width: 25,
-                height: 25,
-                marginLeft: 230
-              }}
-            />
-          </TouchableOpacity>
+          
         </View>
       </View>
     </TouchableOpacity>

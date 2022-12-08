@@ -14,7 +14,7 @@ const Detail =(props) => {
     console.log(idUser);
     const theodoi = (id_user, id_baibao) => {
         axios
-        .post("http://192.168.43.87/api_newspaper-main/api/theodoi/theodoi.php", {
+        .post("https://phantienhuy.000webhostapp.com/api_newspaper-main/api/theodoi/theodoi.php", {
             id_user,
             id_baibao
         })
@@ -27,7 +27,7 @@ const Detail =(props) => {
                 setFollow('đã theo dõi');
                 Alert.alert(
                     "Thông báo",
-                    "Thêm thành công",
+                    "Theo dõi thành công",
                     [
                         {
                             text: "Đã hiểu",
@@ -54,7 +54,7 @@ const Detail =(props) => {
     }
     const botheodoi = (id_user, id_baibao) => {
         axios
-        .post("http://192.168.43.87/api_newspaper-main/api/theodoi/botheodoi.php", {
+        .post("https://phantienhuy.000webhostapp.com/api_newspaper-main/api/theodoi/botheodoi.php", {
             id_user,
             id_baibao
         })
@@ -67,7 +67,7 @@ const Detail =(props) => {
                 setFollow('theo dõi ngay');
                 Alert.alert(
                     "Thông báo",
-                    "thành công",
+                    "Bỏ theo dõi thành công",
                     [
                         {
                             text: "Đã hiểu",
@@ -94,7 +94,7 @@ const Detail =(props) => {
     }
     const checkTontai=(id_user, id_baibao)=>{
         axios
-        .get("http://192.168.43.87/api_newspaper-main/api/theodoi/check.php",{
+        .get("https://phantienhuy.000webhostapp.com/api_newspaper-main/api/theodoi/check.php",{
             params: {
                 id_user,
                 id_baibao

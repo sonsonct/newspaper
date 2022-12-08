@@ -8,6 +8,8 @@ export const AuthProvider = ({ children }) => {
    const [isLoading, setIsLoading] = useState(false);
    const [userInfo, setUserInfo] = useState({});
    const [token, setToken] = useState(null);
+   const [userFullName, setUserFullName] = useState(null);
+   const [idUser, setIdUser] = useState(null);
    const register=(fullname, username, password)=>{
       if(fullname==null){
          Alert.alert(
@@ -48,7 +50,7 @@ export const AuthProvider = ({ children }) => {
       if(password==null){
          Alert.alert(
              "Thông báo",
-             "Xin hãy nhập vào mật khẩu, mật khẩu phải có ít nhất 6 ký tự",
+             "Xin hãy nhập vào mật khẩu",
              [
                {
                  text: "Đã hiểu",
@@ -83,17 +85,30 @@ export const AuthProvider = ({ children }) => {
          AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
          setIsLoading(false);
          console.log(userInfo);
-         if(userInfo){
+         console.log(userInfo.mess);
+         if(userInfo.mess==='thanhcong'){
             Alert.alert(
                 "Thông báo",
-                "Đăng ký thành công, yêu cầu đăng nhập",
+                "Đăng Ký thành công, xin hãy đăng nhập lại",
                 [
                   {
                     text: "Đã hiểu",
+                    onPress: () => {}
                   },
                 ],
               );
             return;
+         }else if(userInfo.mess==='datontai'){
+            Alert.alert(
+               "Thông báo",
+               "Tài khoản đã tồn tại",
+               [
+                 {
+                   text: "Đã hiểu",
+                 },
+               ],
+             );
+           return;
          }
       })
       .catch(e=>{
@@ -102,6 +117,7 @@ export const AuthProvider = ({ children }) => {
       })
    };
    const login=(username, password)=>{
+
       if(username==null){
          Alert.alert(
              "Thông báo",
@@ -138,7 +154,7 @@ export const AuthProvider = ({ children }) => {
       .then(res=>{
          let userInfo = res.data;
          setUserInfo(userInfo);
-         setToken(userInfo.token);
+         
          console.log(userInfo);
          if(userInfo.mess){
             Alert.alert(
@@ -153,7 +169,13 @@ export const AuthProvider = ({ children }) => {
             setIsLoading(false);
            return;
          }
+         
+         setToken(userInfo.token);
+         setUserFullName(userInfo.fullname);
+         setIdUser(userInfo.id);
+         console.log(userInfo);
          AsyncStorage.setItem('token', userInfo.token);
+         AsyncStorage.setItem('id', userInfo.id);
          setIsLoading(false);
       })
       .catch(e=>{
@@ -165,6 +187,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoading(true);
       setToken(null);
       AsyncStorage.removeItem('token');
+      AsyncStorage.removeItem('id');
       setIsLoading(false);
    }
    const isLogin = async ()=>{
@@ -172,6 +195,8 @@ export const AuthProvider = ({ children }) => {
          setIsLoading(true);
          let token =  await AsyncStorage.getItem('token');
          setToken(token);
+         let id =  await AsyncStorage.getItem('id');
+         setIdUser(id);
          setIsLoading(false);
       }catch(e){
          console.log('err', e);
@@ -182,7 +207,6 @@ export const AuthProvider = ({ children }) => {
    useEffect(()=>{
       isLogin();
    }, [])
-   //,login, logout, isLoading, userToken, userName, password
    return (
       <AuthContext.Provider value={{
          login,
@@ -190,7 +214,9 @@ export const AuthProvider = ({ children }) => {
          register,
          isLoading,
          userInfo,
-         token
+         token,
+         userFullName,
+         idUser,
          
       }}>{children}</AuthContext.Provider>
    )

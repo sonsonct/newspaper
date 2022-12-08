@@ -22,7 +22,7 @@ const Search = ({ navigation: { goBack } }) => {
         }
         setisLoading(true);
 
-        axios.get(`http://192.168.43.87/api_newspaper-main/api/baibao/theotieude.php/`, {
+        axios.get(`https://phantienhuy.000webhostapp.com/api_newspaper-main/api/baibao/theotieude.php`, {
             params: {
                 tieu_de,
             }
