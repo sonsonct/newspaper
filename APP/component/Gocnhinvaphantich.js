@@ -12,7 +12,7 @@ const Gocnhinvaphantich = () => {
     }
   }, []);
   const getList = () => {
-    return fetch('https://637cbd7916c1b892ebbd8eaf.mockapi.io/Tin_moi')
+    return fetch('https://phantienhuy.000webhostapp.com/api_newspaper-main/api/baibao/Tinmoi.php')
       .then((response) => response.json())
       .then((responseJson) => {
         setdata(responseJson);

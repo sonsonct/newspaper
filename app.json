@@ -4,10 +4,10 @@
     "slug": "newspapers",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconlogo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/loadicon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

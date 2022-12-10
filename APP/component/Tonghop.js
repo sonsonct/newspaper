@@ -13,7 +13,7 @@ const Tonghop = () => {
     }
   }, []);
   const getList = () => {
-    return fetch('https://637cbd7916c1b892ebbd8eaf.mockapi.io/Tong_hop')
+    return fetch('https://phantienhuy.000webhostapp.com/api_newspaper-main/api/baibao/Tonghop.php')
       .then((response) => response.json())
       .then((responseJson) => {
         setdata(responseJson);

@@ -12,7 +12,7 @@ const Nong24h = () => {
     }
   }, []);
   const getList = () => {
-    return fetch('https://637cbd7916c1b892ebbd8eaf.mockapi.io/Nong24h')
+    return fetch('https://phantienhuy.000webhostapp.com/api_newspaper-main/api/baibao/Nong24h.php')
       .then((response) => response.json())
       .then((responseJson) => {
         setdata(responseJson);

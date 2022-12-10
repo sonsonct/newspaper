@@ -13,7 +13,7 @@ const Videothoisu = () => {
         }
     }, []);
     const getList = () => {
-        return fetch('https://637cc0c516c1b892ebbdeffb.mockapi.io/Video_thoi_su')
+        return fetch('https://phantienhuy.000webhostapp.com/api_newspaper-main/api/baibao/Videothoisu.php')
             .then((response) => response.json())
             .then((responseJson) => {
                 setdata(responseJson);
