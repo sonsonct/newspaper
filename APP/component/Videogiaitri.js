@@ -8,9 +8,7 @@ const Videogiaitri = () => {
 
     useEffect(() => {
         getList();
-        return () => {
-
-        }
+        
     }, []);
     const getList = () => {
         return fetch('https://637cc0c516c1b892ebbdeffb.mockapi.io/Video_giai_tri')

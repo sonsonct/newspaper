@@ -12,7 +12,7 @@ const Follow = () => {
   
   const getbaibao = (id_user) => {
     setisLoading(true);
-    axios.get(`http://192.168.43.184/API_BaoCao-main/api/theodoi/gettheodoi.php/`, {
+    axios.get(`https://phantienhuy.000webhostapp.com/api_newspaper-main/api/theodoi/gettheodoi.php`, {
       params: {
         id_user,
       }

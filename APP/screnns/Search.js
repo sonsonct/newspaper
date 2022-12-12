@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, StyleSheet, View, TextInput, Image, TouchableOpacity, ActivityIndicator, FlatList, Alert } from 'react-native'
+import { Text, StyleSheet, View, TextInput, Image, TouchableOpacity, ActivityIndicator, FlatList, Alert,StatusBar } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 const Search = ({ navigation: { goBack } }) => {
@@ -22,7 +22,7 @@ const Search = ({ navigation: { goBack } }) => {
         }
         setisLoading(true);
 
-        axios.get(`http://192.168.0.106/api_newspaper-main/api/baibao/theotieude.php/`, {
+        axios.get(`https://phantienhuy.000webhostapp.com/api_newspaper-main/api/baibao/theotieude.php`, {
             params: {
                 tieu_de,
             }
@@ -58,7 +58,6 @@ const Search = ({ navigation: { goBack } }) => {
                 console.log(item.id)
             }
             }
-
         >
             <View style={styles.bai_bao}>
                 <Image
@@ -73,22 +72,16 @@ const Search = ({ navigation: { goBack } }) => {
                         source={{ uri: item.logo }}
                         resizeMode="contain"
                         style={styles.imglogo} />
-                    <TouchableOpacity>
-                        <Image source={require('../img/yeuthich.png')}
-                            resizeMode='contain'
-                            style={{
-                                width: 25,
-                                height: 25,
-                                marginLeft: 230
-                            }}
-                        />
-                    </TouchableOpacity>
                 </View>
             </View>
         </TouchableOpacity>
     )
     return (
         <View style={styles.container}>
+            <StatusBar
+                    animated={true}
+                    backgroundColor="#015f71"
+                />
             <View style={styles.header}>
                 <View style={styles.search}>
                     <TouchableOpacity

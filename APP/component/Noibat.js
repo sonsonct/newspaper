@@ -7,9 +7,6 @@ const Noibat = () => {
   const navigation = useNavigation();
   useEffect(() => {
     getList();
-    return () => {
-
-    }
   }, []);
   const getList = () => {
     return fetch('https://637cbd7916c1b892ebbd8eaf.mockapi.io/Noi_bat')
@@ -42,16 +39,7 @@ const Noibat = () => {
             source={{ uri: item.logo }}
             resizeMode="contain"
             style={styles.imglogo} />
-          <TouchableOpacity>
-            <Image source={require('../img/yeuthich.png')}
-              resizeMode='contain'
-              style={{
-                width: 25,
-                height: 25,
-                marginLeft: 230
-              }}
-            />
-          </TouchableOpacity>
+          
         </View>
       </View>
     </TouchableOpacity>

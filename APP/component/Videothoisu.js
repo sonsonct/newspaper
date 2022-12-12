@@ -8,9 +8,7 @@ const Videothoisu = () => {
 
     useEffect(() => {
         getList();
-        return () => {
-
-        }
+       
     }, []);
     const getList = () => {
         return fetch('https://637cc0c516c1b892ebbdeffb.mockapi.io/Video_thoi_su')
@@ -43,7 +41,7 @@ const Videothoisu = () => {
     )
     return (
             <View style={styles.container}>
-                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#f47c59', paddingLeft: 20 }}>THỜI SỰ</Text>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#f47c59', paddingLeft: 20 }}>GAME</Text>
                 {isLoading ? <ActivityIndicator /> : (
                     <FlatList
                         data={data}
