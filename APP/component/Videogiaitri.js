@@ -8,12 +8,10 @@ const Videogiaitri = () => {
 
     useEffect(() => {
         getList();
-        return () => {
-
-        }
+        
     }, []);
     const getList = () => {
-        return fetch('https://phantienhuy.000webhostapp.com/api_newspaper-main/api/baibao/Videogiaitri.php')
+        return fetch('https://637cc0c516c1b892ebbdeffb.mockapi.io/Video_giai_tri')
             .then((response) => response.json())
             .then((responseJson) => {
                 setdata(responseJson);

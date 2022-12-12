@@ -8,12 +8,9 @@ const VideoYTB = () => {
 
     useEffect(() => {
         getList();
-        return () => {
-
-        }
     }, []);
     const getList = () => {
-        return fetch('https://phantienhuy.000webhostapp.com/api_newspaper-main/api/baibao/Videothethao.php')
+        return fetch('https://637cc0c516c1b892ebbdeffb.mockapi.io/Video_the_thao')
             .then((response) => response.json())
             .then((responseJson) => {
                 setdata(responseJson);

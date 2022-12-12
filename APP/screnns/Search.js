@@ -58,7 +58,6 @@ const Search = ({ navigation: { goBack } }) => {
                 console.log(item.id)
             }
             }
-
         >
             <View style={styles.bai_bao}>
                 <Image

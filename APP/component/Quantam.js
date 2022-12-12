@@ -12,7 +12,7 @@ const Quantam = () => {
     }
   }, []);
   const getList = () => {
-    return fetch('https://phantienhuy.000webhostapp.com/api_newspaper-main/api/baibao/Quantam.php')
+    return fetch('https://637cc0c516c1b892ebbdeffb.mockapi.io/Quan_tam')
       .then((response) => response.json())
       .then((responseJson) => {
         setdata(responseJson);
